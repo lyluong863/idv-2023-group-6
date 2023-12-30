@@ -3,8 +3,8 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"gh-pages": "npm run build && npx gh-pages -d build"
 	},
 	"devDependencies": {
 		"@rollup/plugin-dsv": "^3.0.0",
@@ -27,6 +27,7 @@
 		"@snlab/florence": "^0.4.0",
 		"@snlab/florence-datacontainer": "^0.1.9",
 		"d3-scale": "^4.0.2",
+		"gh-pages": "^6.1.1",
 		"swiper": "^8.4.4"
 	}
 }
