@@ -29,8 +29,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 'latest'
-      - run: npm ci
-      - run: npm run build
+      - run: pnpm install 
+      - run: pnpm build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:

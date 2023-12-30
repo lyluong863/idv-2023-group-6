@@ -17,7 +17,7 @@ const preprocess = sveltePreprocess({
 const config = {
   preprocess,
   kit: {
-    adapter: adapterStatic({ paths: { base: dev ? "" : "/idv-2023-group-6" } }),
+    adapter: adapterStatic(),
     alias: {
       "components/*": "src/components/*",
       "data/*": "src/data/*",
