@@ -37,10 +37,6 @@
         groups
       </p>
       <p>
-        They then manually classified nearly 4 000 unique activities. And made
-        some surprising discoveries.
-      </p>
-      <p>
         Since the data only observed through 140 countries, the others are
         interpolated
       </p>
@@ -80,5 +76,11 @@
     display: flex;
     justify-content: center;
     flex-grow: 1;
+  }
+  @media only screen and (max-width: 700px) {
+    .text-slide-content p {
+      font-size: 16px;
+      margin-top: 10px;
+    }
   }
 </style>
