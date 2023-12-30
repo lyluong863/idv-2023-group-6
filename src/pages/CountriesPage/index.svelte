@@ -8,18 +8,21 @@
 
   let showMoreInfo = false;
   export let viewportWidth;
+  export let viewportHeight;
+
+  $: console.log(viewportHeight)
 
   let viewportLimit = {
     scale: "",
     shranked: "scale(0.9);",
   };
 
-  $: if (viewportWidth < 700) {
+  $: if (viewportWidth < 700 || viewportHeight < 600) {
     viewportLimit = {
       scale: "scale(0.35)",
       shranked: "scale(0.35) translate(0, -90%)",
     };
-  } else if (viewportWidth <= 1100) {
+  } else if (viewportWidth <= 1100 || viewportHeight < 1000) {
     viewportLimit = {
       scale: "scale(0.8)",
       shranked: "scale(0.7) translate(0, -20%)",

@@ -3,6 +3,7 @@
   import { onMount } from "svelte";
 
   let viewportWidth = 0;
+  let viewportHeight = 0;
   let mounted = false;
 
   onMount(async () => {
@@ -10,9 +11,9 @@
   });
 </script>
 
-<div class="viewport" bind:clientWidth={viewportWidth}>
+<div class="viewport" bind:clientWidth={viewportWidth} bind:clientHeight={viewportHeight}>
   {#if mounted}
-    <Slider {viewportWidth} />
+    <Slider {viewportWidth} {viewportHeight} />
   {/if}
 </div>
 

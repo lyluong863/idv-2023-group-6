@@ -33,6 +33,7 @@
   let movingBackwards = false;
   let w = false;
   export let viewportWidth;
+  export let viewportHeight;
   let onInit;
   let popFirst = false;
   let swiper;
@@ -114,8 +115,8 @@
     initialSlide="0"
   >
     <Introduction {viewportWidth} width={w} {popFirst} />
-    <Countries {viewportWidth} />
-    <Categories {viewportWidth} />
+    <Countries {viewportWidth} {viewportHeight} />
+    <Categories {viewportWidth} {viewportHeight} />
     <Conclusion />
     <References />
   </Swiper>

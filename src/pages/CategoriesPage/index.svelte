@@ -6,17 +6,18 @@
   import ScatterPlot from "./ScatterPlot.svelte";
 
   export let viewportWidth;
+  export let viewportHeight;
   let showMoreInfo = false;
   const showMoreToggle = () => (showMoreInfo = !showMoreInfo);
   let viewportLimit;
 
-  $: if (viewportWidth < 700) {
+  $: if (viewportWidth < 700 || viewportHeight < 1000) {
     viewportLimit = {
       scale: "scale(0.6)",
       height: "600px",
       margin: "",
     };
-  } else if (viewportWidth < 1100) {
+  } else if (viewportWidth < 1100 || viewportHeight < 1300) {
     viewportLimit = {
       scale: "scale(0.9)",
       height: "750px",
