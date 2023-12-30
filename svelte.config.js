@@ -20,12 +20,6 @@ const config = {
   kit: {
     adapter: adapterStatic({
       strict: false,
-      paths: {
-        base:
-          process.env.NODE_ENV === "production"
-            ? "/idv-2023-group-6"
-            : "",
-      },
     }),
     alias: {
       "components/*": "src/components/*",
