@@ -1,0 +1,218 @@
+@import "variables.css";
+@import "normalize.css";
+@import "reset.css";
+@import "slider.css";
+
+/* colors defined in variables.css */
+:root {
+  /* font */
+  --sans: "National 2 Web", -apple-system, BlinkMacSystemFont, Helvetica, Arial,
+    sans-serif;
+  --serif: "EB Garamond", Iowan Old Style, Times New Roman, Times, serif;
+  --mono: Menlo, Consolas, Monaco, monospace;
+
+  /* z-index */
+  --z-bottom: -100;
+  --z-middle: 0;
+  --z-top: 100;
+  --z-overlay: 1000;
+
+  /* presets (used in reset.css) */
+  --border-radius: 2px;
+  --font-body: var(--serif);
+  --font-form: var(--sans);
+  --color-bg: #fffce3;
+  --color-fg: #000;
+  --color-primary: var(--color-black);
+  --color-link: var(--color-black);
+  --color-focus: var(--color-red);
+  --color-mark: var(--color-yellow);
+  --color-selection: var(--color-gray-300);
+  --color-border: var(--color-gray-300);
+  --color-button-bg: var(--color-gray-300);
+  --color-button-fg: var(--color-gray-900);
+  --color-button-hover: var(--color-gray-400);
+  --color-input-bg: var(--color-gray-50);
+  --color-input-fg: var(--color-gray-900);
+  --color-placeholder: var(--color-gray-500);
+
+  /* "1" second duration */
+  --1s: 1ms;
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+  :root {
+    --1s: 1s;
+  }
+}
+
+html,
+body,
+main {
+  height: 100%;
+  overflow: hidden;
+}
+
+.hed {
+  font-size: 40px;
+  line-height: 1.3;
+  text-align: left;
+  display: block;
+}
+
+.hed .smaller {
+  opacity: 1;
+}
+
+.big {
+  font-size: 36px;
+  line-height: 1.3;
+}
+
+#content {
+  /* max-width: 500px; */
+  margin: 0 auto;
+}
+
+.inter {
+  font-family: "Inter";
+  font-size: 18px;
+}
+
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; /* Firefox */
+}
+
+h1 {
+  font-size: var(--48px, 48px);
+}
+
+h2 {
+  font-size: var(--36px, 36px);
+}
+
+h3 {
+  font-size: var(--28px, 28px);
+}
+
+.center {
+  text-align: center;
+  display: block;
+}
+
+h4 {
+  font-size: var(--24px, 24px);
+}
+
+h5 {
+  font-size: var(--22px, 22px);
+}
+
+h6 {
+  font-size: var(--20px, 20px);
+}
+
+.red {
+  color: #ac1919;
+}
+
+li {
+  margin-bottom: 0.5em;
+  list-style: disc;
+  margin-left: 2rem;
+}
+
+.byline {
+  text-align: left;
+}
+
+.read-more {
+  width: calc(100% - 50px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(204, 204, 204, 0.43);
+  background: #fefcee;
+  width: 100%;
+  max-width: 500px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 15px 11px rgba(0, 0, 0, 0.03);
+  position: absolute;
+  top: 100%;
+  transform: translate(0, -50px);
+  left: 0;
+  right: 0;
+  min-height: 50vh;
+  transition: transform 0.2s;
+}
+
+@media only screen and (max-width: 600px) {
+  .read-more {
+    width: calc(100% - 15px);
+    transform: translate(0, -30px);
+  }
+}
+
+.showMoreInfo {
+  transform: translate(0, -100%);
+}
+
+.read-more-content ul {
+  margin-top: 10px;
+  padding-left: 0;
+  width: calc(100% - 15px);
+}
+
+.read-more-content li {
+  font-size: 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.pHed {
+  font-family: "Inter";
+  font-size: 24px;
+}
+
+@media only screen and (max-width: 600px) {
+  #content .slide-content p,
+  #content .text-slide-content p {
+    margin-top: 1rem;
+  }
+
+  .read-more-content li {
+    font-size: revert;
+  }
+
+  .read-more-content ul {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-height: 900px) {
+  .hed {
+    font-size: 28px;
+  }
+
+  #content .read-more-button span {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  #content .swiper-slide .count {
+    font-size: 12px;
+  }
+
+  #content .swiper-slide .counting {
+    font-size: 20px;
+  }
+}
