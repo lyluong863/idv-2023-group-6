@@ -5,8 +5,6 @@
   export let isDisable;
 
   export let onItemClick;
-  export let onMouseover;
-  export let onMouseout;
 
   function onClick() {
     if (!isDisable) onItemClick(value);
@@ -18,8 +16,6 @@
   class:disabled={!isSelect && isDisable}
   class:select={isSelect}
   on:click={onClick}
-  on:mouseover={onMouseover}
-  on:mouseout={onMouseout}
 >
   {label}
 </div>

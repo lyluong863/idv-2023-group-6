@@ -9,7 +9,6 @@
   import { preprocessData, calculateChange } from "./data-process";
 
   let showMoreInfo = false;
-  let showAllLine = true;
   let countriesData = {};
   export let viewportWidth;
   export let viewportHeight;
@@ -21,10 +20,10 @@
 
   const { all_countries } = getContext("data");
 
-  $: if (viewportWidth < 700 || viewportHeight < 600) {
+  $: if (viewportWidth < 900 || viewportHeight < 600) {
     viewportLimit = {
-      scale: "scale(0.4)",
-      shranked: "scale(0.35) translate(0, -90%)",
+      scale: "scale(0.65)",
+      shranked: "scale(0.5) translate(0, -90%)",
     };
   } else if (viewportWidth <= 1100 || viewportHeight < 1000) {
     viewportLimit = {
@@ -82,16 +81,16 @@
           title={$selectedCountries[0].name.toUpperCase()}
           order={$selectedOptions.order}
           showing={$selectedOptions.showing === "both" ? "category" : $selectedOptions.showing}
-          {showAllLine}
-        />
+          {viewportWidth}
+          />
         <StackedBarGraph
           subcategoryData={countriesData.secondCountries}
           totalCategoryData={countriesData.secondCountriesCat}
           title={$selectedCountries[1].name.toUpperCase()}
           order={$selectedOptions.order}
           showing={$selectedOptions.showing === "both" ? "change" : $selectedOptions.showing}
-          {showAllLine}
-        />
+          {viewportWidth}
+          />
       </div>
     {/if}
     <div class="read-more" class:showMoreInfo>

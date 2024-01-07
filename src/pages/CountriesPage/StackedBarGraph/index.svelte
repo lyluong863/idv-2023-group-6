@@ -3,15 +3,15 @@
 
   import StackedBar from "./StackedBar.svelte";
 
-  const width = 1000;
-  const height = 200;
-
   export let subcategoryData;
   export let totalCategoryData;
   export let title;
   export let order; // sort order: 'ascending' | 'descending'
   export let showing; // showing by: 'category' | 'change'
-  export let showAllLine;
+  export let viewportWidth;
+
+  const width = 1000;
+  $: height = viewportWidth < 900 ? 240 : 200;
 
   $: categoriesSorted = totalCategoryData
     .arrange({
@@ -42,8 +42,8 @@
   <StackedBar
     linePosition={"down"}
     textDirection={"up"}
-    {showAllLine}
     {showing}
+    {viewportWidth}
     data={categoriesSorted}
   />
 </Graphic>
@@ -51,8 +51,8 @@
   <StackedBar
     linePosition={"down"}
     textDirection={"down"}
-    {showAllLine}
     {showing}
+    {viewportWidth}
     data={subcategoriesSorted}
   />
 </Graphic>

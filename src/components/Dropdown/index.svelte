@@ -18,8 +18,6 @@
   let inputValue = "";
   let filteredItems = [];
 
-  $: console.log(disabled)
-
   function onInputChange() {
     return (filteredItems = menuList.filter((item) =>
       compareFn(item, inputValue)

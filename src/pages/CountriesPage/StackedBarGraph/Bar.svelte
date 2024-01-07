@@ -1,6 +1,8 @@
 <script>
   import { Rectangle, Line, Point, Label } from "@snlab/florence";
 
+  export let viewportWidth;
+
   //expect one value
   export let x1;
   export let x2;
@@ -10,7 +12,6 @@
   export let lineLength;
   export let strokeWidth;
   export let linePosition; //expect 'up' or 'down'
-  export let showAllLine = true; //true | false
   export let pointRadius;
 
   export let fontSize;
@@ -34,6 +35,8 @@
         : y2 + lineLength + lineHeight + 0.005,
   };
 
+  $: pointToLabel = viewportWidth < 900 ? 0.02 : 0;
+
   function splitString(str) {
     const words = [""];
     const splitted = str.split(" ");
@@ -48,25 +51,23 @@
 </script>
 
 <Rectangle {x1} {x2} {y1} {y2} fill={color} />
-{#if showAllLine}
-  {#each splitString(subLabel, 10) as word, i}
-    <Label
-      x={textInfo.x}
-      y={textInfo.y + lineHeight * (i + 1)}
-      {fontSize}
-      text={word}
-      fontFamily={"Barlow"}
-      fontWeight={"300"}
-    />
-  {/each}
+{#each splitString(subLabel, 10) as word, i}
   <Label
     x={textInfo.x}
-    y={textInfo.y}
+    y={textInfo.y + pointToLabel + lineHeight * (i + 1)}
     {fontSize}
+    text={word}
     fontFamily={"Barlow"}
-    fontWeight={"600"}
-    text={mainLabel}
+    fontWeight={"300"}
   />
-  <Line x={lineInfo.x} y={lineInfo.y} stroke={color} {strokeWidth} />
-  <Point x={center} y={lineInfo.y[1]} fill={color} radius={pointRadius} />
-{/if}
+{/each}
+<Label
+  x={textInfo.x}
+  y={textInfo.y}
+  {fontSize}
+  fontFamily={"Barlow"}
+  fontWeight={"600"}
+  text={mainLabel}
+/>
+<Line x={lineInfo.x} y={lineInfo.y} stroke={color} {strokeWidth} />
+<Point x={center} y={lineInfo.y[1]} fill={color} radius={pointRadius} />

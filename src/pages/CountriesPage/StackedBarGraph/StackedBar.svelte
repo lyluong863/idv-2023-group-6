@@ -5,7 +5,7 @@
   import Bar from "./Bar.svelte";
 
   export let data; //expect data-container with 3 columns: barName, barLength, mainLabel
-  export let showAllLine = true;
+  export let viewportWidth;
   export let showing;
   export let linePosition;
   export let textDirection;
@@ -13,11 +13,12 @@
   $: enoughBandWidthForLabel = showing === "category" ? 2 : 0.5;
   const y1 = 0;
   const y2 = 0.18;
-  const distanceGap = 0.16;
   const lineHeight = 0.055;
-  const fontSize = 8.5;
-
-  const barPadding = 1;
+  const total = 24;
+  $: distanceGap = viewportWidth < 900 ? 0.18 : 0.16;
+  $: fontSize = viewportWidth < 900 ? 10 : 8.5;
+  $: barPadding = viewportWidth < 900 ? 1.5 : 1;
+  $: yMax = viewportWidth < 900 ? 1.5 : 1.275;
 
   $: transformed = data
     .cumsum({ xValue: "barLength" }, { asInterval: true })
@@ -34,9 +35,8 @@
       return { ...columns, lineLength };
     });
 
-  const total = 24;
-  const scaleX = scaleLinear().domain([0 - barPadding, total + barPadding]);
-  const scaleY = scaleLinear().domain([0, 1.275]);
+  $: scaleX = scaleLinear().domain([0 - barPadding, total + barPadding]);
+  $: scaleY = scaleLinear().domain([0, yMax]);
 </script>
 
 <Section {scaleX} {scaleY}>
@@ -55,11 +55,11 @@
         {color}
         {mainLabel}
         subLabel={barName}
-        {showAllLine}
         {fontSize}
         strokeWidth={1}
         pointRadius={2}
         {lineHeight}
+        {viewportWidth}
       />
     {/each}
   {/key}

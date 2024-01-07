@@ -188,6 +188,17 @@
     background: white;
   }
 
+  @media only screen and (max-width: 800px) {
+    .slide-buttons {
+      width: 30px;
+      height: 45px;
+    }
+
+    .slide-buttons .carrot {
+      width: 10px;
+    }
+  }
+
   @media only screen and (max-width: 600px) {
     .slide-buttons {
       display: none;
