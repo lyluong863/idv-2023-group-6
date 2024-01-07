@@ -10,6 +10,7 @@
   export let order; // sort order: 'ascending' | 'descending'
   export let showing; // showing by: 'category' | 'change'
   export let viewportWidth;
+  export let viewportHeight;
 
   const width = 1000;
   $: height = viewportWidth < 900 ? 240 : 280;
@@ -30,7 +31,10 @@
     });
 </script>
 
-<div class:top-graph-adjustment={position === "down"}>
+<div
+  class:top-graph-adjustment={position === "down" && viewportHeight > 800}
+  class:top-graph-mini-adjustment={position === "down" && viewportHeight <= 800}
+>
   <Graphic {width} {height} padding={0} flipY>
     <Label
       x={0.05}
@@ -64,6 +68,9 @@
 </div>
 
 <style>
+  .top-graph-mini-adjustment {
+    margin-top: -12%;
+  }
   .top-graph-adjustment {
     margin-top: -5%;
   }
