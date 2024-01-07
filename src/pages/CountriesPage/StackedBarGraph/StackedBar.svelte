@@ -10,7 +10,7 @@
   export let linePosition;
   export let textDirection;
 
-  $: enoughBandWidthForLabel = showing === "category" ? 2.5 : 1;
+  $: enoughBandWidthForLabel = showing === "category" ? 2.2 : 1;
   const y1 = 0;
   const y2 = 0.18;
   const lineHeight = viewportWidth < 900 ? 0.055 : 0.07;
