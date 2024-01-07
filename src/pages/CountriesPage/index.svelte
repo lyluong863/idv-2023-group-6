@@ -22,8 +22,8 @@
 
   $: if (viewportWidth < 900 || viewportHeight < 600) {
     viewportLimit = {
-      scale: "scale(0.65)",
-      shranked: "scale(0.6) translate(0, -5%)",
+      scale: "scale(0.6)",
+      shranked: "scale(0.55) translate(0, -5%)",
     };
   } else if (viewportHeight < 900) {
     viewportLimit = {

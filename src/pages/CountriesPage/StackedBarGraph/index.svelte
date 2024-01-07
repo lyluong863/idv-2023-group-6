@@ -12,7 +12,7 @@
   export let viewportWidth;
   export let viewportHeight;
 
-  $: width = viewportWidth < 800 ? 960 : 1000;
+  const width = 1080;
   const height = 280;
 
   $: categoriesSorted = totalCategoryData
