@@ -162,6 +162,13 @@ li {
   }
 }
 
+@media only screen and (max-height: 900px) {
+  .read-more {
+    width: calc(100% - 15px);
+    transform: translate(0, -25px);
+  }
+}
+
 .showMoreInfo {
   transform: translate(0, -100%);
 }
