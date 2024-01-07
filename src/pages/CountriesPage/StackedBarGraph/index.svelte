@@ -12,7 +12,7 @@
   export let viewportWidth;
   export let viewportHeight;
 
-  $: width = viewportWidth < 900 ? 960 : 1000;
+  $: width = viewportWidth < 800 ? 960 : 1000;
   const height = 280;
 
   $: categoriesSorted = totalCategoryData
@@ -32,8 +32,8 @@
 </script>
 
 <div
-  class:top-graph-adjustment={position === "down" && viewportHeight > 900}
-  class:top-graph-mini-adjustment={position === "down" && viewportHeight <= 900}
+  class:top-graph-adjustment={position === "down" && viewportHeight > 900 && viewportWidth > 800}
+  class:top-graph-mini-adjustment={position === "down" && viewportHeight <= 900 && viewportWidth > 800}
 >
   <Graphic {width} {height} padding={0} flipY>
     <Label

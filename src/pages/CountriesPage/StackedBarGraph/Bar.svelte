@@ -35,7 +35,7 @@
         : y2 + lineLength + lineHeight + 0.005,
   };
 
-  $: pointToLabel = viewportWidth < 900 ? 0.02 : 0.015;
+  const pointToLabel = 0.015;
 
   function splitString(str) {
     const words = [""];

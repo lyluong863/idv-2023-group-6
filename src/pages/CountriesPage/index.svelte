@@ -23,7 +23,7 @@
   $: if (viewportWidth < 900 || viewportHeight < 600) {
     viewportLimit = {
       scale: "scale(0.65)",
-      shranked: "scale(0.5) translate(0, -90%)",
+      shranked: "scale(0.6) translate(0, -5%)",
     };
   } else if (viewportHeight < 900) {
     viewportLimit = {
@@ -33,7 +33,7 @@
   } else if (viewportWidth <= 1100 || viewportHeight < 1000) {
     viewportLimit = {
       scale: "scale(0.9)",
-      shranked: "scale(0.9) translate(0, -15%)",
+      shranked: "scale(0.9) translate(0, -5%)",
     };
   } else {
     viewportLimit = {
