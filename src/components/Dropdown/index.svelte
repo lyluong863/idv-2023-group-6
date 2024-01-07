@@ -4,6 +4,7 @@
   import DropdownSearch from "./DropdownSearch.svelte";
 
   export let legend;
+  export let disabled; // array of disabled value
   export let currentValue; //current value
   export let currentTitle; //current title
   export let menuList; //expect array of {value, label}
@@ -14,11 +15,10 @@
   export let onSelect; //trigger when value is select
 
   let menuOpen = false;
-  let listHovered = false;
   let inputValue = "";
   let filteredItems = [];
-  const buttonTexts =
-    typeof menuTitle === "string" ? [menuTitle, menuTitle] : menuTitle;
+
+  $: console.log(disabled)
 
   function onInputChange() {
     return (filteredItems = menuList.filter((item) =>
@@ -36,13 +36,6 @@
 
   function onClickOutside() {
     if (menuOpen) menuOpen = false;
-  }
-
-  function onListMoveOver() {
-    listHovered = true;
-  }
-  function onListMoveOut() {
-    listHovered = false;
   }
 </script>
 
@@ -67,9 +60,8 @@
           {label}
           {value}
           {onItemClick}
-          isSelect={!listHovered && value === currentValue}
-          onMouseover={onListMoveOver}
-          onMouseout={onListMoveOut}
+          isSelect={value === currentValue}
+          isDisable={disabled.find(item => value.iso === item.iso)}
         />
       {/each}
     </div>
@@ -102,7 +94,7 @@
     cursor: pointer;
     font-family: inherit;
     display: inline-block;
-		border-bottom: 1px solid #B4B4B4;
+    border-bottom: 1px solid #b4b4b4;
   }
 
   span:before {
@@ -120,7 +112,7 @@
 
   .option:hover {
     box-shadow: 0 0 4px 0 var(--color-focus);
-	}
+  }
 
   .dropdown {
     position: relative;
@@ -131,7 +123,9 @@
     display: none;
     position: absolute;
     min-width: 103px;
-    border: 1px solid #B4B4B4;
+    max-height: 170px;
+    overflow: auto;
+    border: 1px solid #b4b4b4;
     z-index: 1;
   }
 

@@ -19,7 +19,7 @@
     font-size: 14px;
     padding: 3.5px 6px;
     border: none;
-    width: 103px;
+    width: 100%;
     font-family: inherit;
   }
 

@@ -1,13 +1,16 @@
 <script>
+  import { getContext } from "svelte";
+
   import {
     selectedCountries,
     selectedOptions,
     orderOptions,
-    criteriaOptions,
+    showingOption,
   } from "./CountriesPageStore";
-  import { countries } from "../../data/countries";
   import ButtonSet from "components/ButtonSet.svelte";
   import Dropdown from "components/Dropdown/index.svelte";
+
+  const { country_regions } = getContext("data");
 
   // Dropdown handler
   function onFirstCountrySelect(newCountry) {
@@ -26,18 +29,22 @@
   bind:value={$selectedOptions.order}
 />
 <ButtonSet
-  legend={"Sort by"}
+  legend={"Show"}
   legendPosition={"left"}
-  options={criteriaOptions}
-  bind:value={$selectedOptions.criteria}
+  options={showingOption}
+  bind:value={$selectedOptions.showing}
 />
 <div class="comparison">
   <Dropdown
-    legend={"Comparison between"}
+    legend={"Let's make an comparison between"}
     currentValue={$selectedCountries[0]}
     currentTitle={$selectedCountries[0].name}
+    disabled={$selectedCountries}
     menuTitle={"Select countries"}
-    menuList={countries.map((item) => ({ label: item.name, value: item }))}
+    menuList={country_regions.map((item) => ({
+      label: item.name,
+      value: item,
+    }))}
     inputPlaceholder={"Search a country"}
     compareFn={(item, value) =>
       item.label.toLowerCase().match(value.toLowerCase())}
@@ -48,8 +55,12 @@
     legend={"and"}
     currentValue={$selectedCountries[1]}
     currentTitle={$selectedCountries[1].name}
+    disabled={$selectedCountries}
     menuTitle={"Select countries"}
-    menuList={countries.map((item) => ({ label: item.name, value: item }))}
+    menuList={country_regions.map((item) => ({
+      label: item.name,
+      value: item,
+    }))}
     inputPlaceholder={"Search a country"}
     compareFn={(item, value) =>
       item.label.toLowerCase().match(value.toLowerCase())}

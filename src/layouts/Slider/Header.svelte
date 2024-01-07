@@ -39,7 +39,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding-top: 20px;
-    max-width: 500px;
+    max-width: 600px;
     padding-bottom: 50px;
   }
 </style>

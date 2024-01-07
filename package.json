@@ -27,7 +27,10 @@
 	"dependencies": {
 		"@snlab/florence": "^0.4.0",
 		"@snlab/florence-datacontainer": "^0.1.9",
+		"d3-dsv": "^3.0.1",
+		"d3-fetch": "^3.0.1",
 		"d3-scale": "^4.0.2",
+		"d3-scale-chromatic": "^3.0.0",
 		"swiper": "^8.4.4"
 	}
 }
