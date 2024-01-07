@@ -27,8 +27,8 @@
     };
   } else if (viewportHeight < 900) {
     viewportLimit = {
-      scale: "scale(0.75)",
-      shranked: "scale(0.70) translate(0, -5%)",
+      scale: "scale(0.8)",
+      shranked: "scale(0.75) translate(0, -5%)",
     };
   } else if (viewportWidth <= 1100 || viewportHeight < 1000) {
     viewportLimit = {

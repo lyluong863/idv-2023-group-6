@@ -69,7 +69,7 @@
 
 <style>
   .top-graph-mini-adjustment {
-    margin-top: -12%;
+    margin-top: -10%;
   }
   .top-graph-adjustment {
     margin-top: -5%;

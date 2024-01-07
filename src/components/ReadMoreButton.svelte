@@ -47,4 +47,10 @@
       padding: 0.5rem 0rem;
     }
   }
+
+  @media only screen and (max-height: 900px) {
+    .read-more-button {
+      padding: 0.5rem 0rem;
+    }
+  }
 </style>
