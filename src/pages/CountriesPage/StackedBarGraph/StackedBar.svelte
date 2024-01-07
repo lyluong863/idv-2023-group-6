@@ -59,7 +59,6 @@
         strokeWidth={1}
         pointRadius={2}
         {lineHeight}
-        {viewportWidth}
       />
     {/each}
   {/key}

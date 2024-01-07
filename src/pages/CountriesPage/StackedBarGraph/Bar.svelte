@@ -1,8 +1,6 @@
 <script>
   import { Rectangle, Line, Point, Label } from "@snlab/florence";
 
-  export let viewportWidth;
-
   //expect one value
   export let x1;
   export let x2;
