@@ -39,8 +39,8 @@ export function calculateLineLength(
     1: startPos + distanceLevel * 1.3,
     2: startPos + distanceLevel * 2.7,
     3: startPos + distanceLevel * 3.7,
-    4: startPos + distanceLevel * 4.5,
-    5: startPos + distanceLevel * 5.5,
+    4: startPos + distanceLevel * 4.7,
+    5: startPos + distanceLevel * 5.7,
   }
   return spaceLevel.map((value) => mapLevelToY[value]);
 }

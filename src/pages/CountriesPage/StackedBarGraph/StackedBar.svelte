@@ -13,10 +13,10 @@
   $: enoughBandWidthForLabel = showing === "category" ? 2 : 1;
   const y1 = 0;
   const y2 = 0.18;
-  const lineHeight = 0.07;
+  const lineHeight = viewportWidth < 900 ? 0.06 : 0.07;
   const total = 24;
-  $: distanceGap = viewportWidth < 900 ? 0.18 : 0.22;
-  $: fontSize = viewportWidth < 900 ? 10 : 11;
+  const fontSize = 11;
+  $: distanceGap = viewportWidth < 900 ? 0.185 : 0.22;
   $: barPadding = viewportWidth < 900 ? 1.5 : 1;
   $: yMax = viewportWidth < 900 ? 1.5 : 2;
 

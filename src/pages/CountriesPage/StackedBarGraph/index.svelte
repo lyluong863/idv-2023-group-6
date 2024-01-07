@@ -12,8 +12,8 @@
   export let viewportWidth;
   export let viewportHeight;
 
-  const width = 1000;
-  $: height = viewportWidth < 900 ? 240 : 280;
+  $: width = viewportWidth < 900 ? 960 : 1000;
+  const height = 280;
 
   $: categoriesSorted = totalCategoryData
     .arrange({
@@ -76,10 +76,10 @@
     margin-top: -75px;
   }
   .top-graph-adjustment {
-    margin-top: -50px;
+    margin-top: -60px;
   }
   .bottom-graph-adjustment {
-    margin-bottom: -50px;
+    margin-bottom: -60px;
   }
 
   .bottom-graph-mini-adjustment {

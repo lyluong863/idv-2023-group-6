@@ -16,7 +16,11 @@ const colorMap = categories.reduce((result, { name }, i) => {
 function convertTime(hour) {
   const hours = Math.floor(hour);
   const minutes = Math.round((hour - hours) * 60);
-  return hours ? `${hours}h ${minutes}m` : `${minutes}m`;
+  return hours
+    ? minutes
+      ? `${hours}h ${minutes}m`
+      : `${hours}h`
+    : `${minutes}m`;
 }
 
 export function preprocessData(inputData, needComputeCategory) {
