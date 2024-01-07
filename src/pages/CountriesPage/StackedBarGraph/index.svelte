@@ -55,7 +55,11 @@
   </Graphic>
 </div>
 
-<div class:bottom-graph-adjustment={position === "up"}>
+<div
+  class:bottom-graph-adjustment={position === "up" && viewportHeight > 800}
+  class:bottom-graph-mini-adjustment={position === "up" &&
+    viewportHeight <= 800}
+>
   <Graphic {width} {height} padding={0}>
     <StackedBar
       linePosition={"down"}
@@ -69,12 +73,16 @@
 
 <style>
   .top-graph-mini-adjustment {
-    margin-top: -12%;
+    margin-top: -75px;
   }
   .top-graph-adjustment {
-    margin-top: -5%;
+    margin-top: -50px;
   }
   .bottom-graph-adjustment {
-    margin-bottom: -5%;
+    margin-bottom: -50px;
+  }
+
+  .bottom-graph-adjustment {
+    margin-bottom: -75px;
   }
 </style>
