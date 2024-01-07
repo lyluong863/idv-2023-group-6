@@ -32,8 +32,8 @@
 </script>
 
 <div
-  class:top-graph-adjustment={position === "down" && viewportHeight > 800}
-  class:top-graph-mini-adjustment={position === "down" && viewportHeight <= 800}
+  class:top-graph-adjustment={position === "down" && viewportHeight > 900}
+  class:top-graph-mini-adjustment={position === "down" && viewportHeight <= 900}
 >
   <Graphic {width} {height} padding={0} flipY>
     <Label
@@ -56,9 +56,9 @@
 </div>
 
 <div
-  class:bottom-graph-adjustment={position === "up" && viewportHeight > 800}
+  class:bottom-graph-adjustment={position === "up" && viewportHeight > 900}
   class:bottom-graph-mini-adjustment={position === "up" &&
-    viewportHeight <= 800}
+    viewportHeight <= 900}
 >
   <Graphic {width} {height} padding={0}>
     <StackedBar
@@ -82,7 +82,7 @@
     margin-bottom: -50px;
   }
 
-  .bottom-graph-adjustment {
+  .bottom-graph-mini-adjustment {
     margin-bottom: -75px;
   }
 </style>
