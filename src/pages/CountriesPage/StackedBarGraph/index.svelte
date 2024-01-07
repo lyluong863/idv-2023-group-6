@@ -6,12 +6,13 @@
   export let subcategoryData;
   export let totalCategoryData;
   export let title;
+  export let position; // "up" / "down"
   export let order; // sort order: 'ascending' | 'descending'
   export let showing; // showing by: 'category' | 'change'
   export let viewportWidth;
 
   const width = 1000;
-  $: height = viewportWidth < 900 ? 240 : 200;
+  $: height = viewportWidth < 900 ? 240 : 280;
 
   $: categoriesSorted = totalCategoryData
     .arrange({
@@ -29,30 +30,44 @@
     });
 </script>
 
-<Graphic {width} {height} padding={0} flipY>
-  <Label
-    x={0.05}
-    y={0.8}
-    fontSize={25}
-    fontFamily={"Barlow"}
-    fontWeight={"800"}
-    text={title}
-    anchorPoint={"l"}
-  />
-  <StackedBar
-    linePosition={"down"}
-    textDirection={"up"}
-    {showing}
-    {viewportWidth}
-    data={categoriesSorted}
-  />
-</Graphic>
-<Graphic {width} {height} padding={0}>
-  <StackedBar
-    linePosition={"down"}
-    textDirection={"down"}
-    {showing}
-    {viewportWidth}
-    data={subcategoriesSorted}
-  />
-</Graphic>
+<div class:top-graph-adjustment={position === "down"}>
+  <Graphic {width} {height} padding={0} flipY>
+    <Label
+      x={0.05}
+      y={0.5}
+      fontSize={25}
+      fontFamily={"Barlow"}
+      fontWeight={"800"}
+      text={title}
+      anchorPoint={"l"}
+    />
+    <StackedBar
+      linePosition={"down"}
+      textDirection={"up"}
+      {showing}
+      {viewportWidth}
+      data={categoriesSorted}
+    />
+  </Graphic>
+</div>
+
+<div class:bottom-graph-adjustment={position === "up"}>
+  <Graphic {width} {height} padding={0}>
+    <StackedBar
+      linePosition={"down"}
+      textDirection={"down"}
+      {showing}
+      {viewportWidth}
+      data={subcategoriesSorted}
+    />
+  </Graphic>
+</div>
+
+<style>
+  .top-graph-adjustment {
+    margin-top: -5%;
+  }
+  .bottom-graph-adjustment {
+    margin-bottom: -5%;
+  }
+</style>

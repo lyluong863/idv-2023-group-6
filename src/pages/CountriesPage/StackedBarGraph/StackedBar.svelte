@@ -10,15 +10,15 @@
   export let linePosition;
   export let textDirection;
 
-  $: enoughBandWidthForLabel = showing === "category" ? 2 : 0.5;
+  $: enoughBandWidthForLabel = showing === "category" ? 2 : 1;
   const y1 = 0;
   const y2 = 0.18;
-  const lineHeight = 0.055;
+  const lineHeight = 0.07;
   const total = 24;
-  $: distanceGap = viewportWidth < 900 ? 0.18 : 0.16;
-  $: fontSize = viewportWidth < 900 ? 10 : 8.5;
+  $: distanceGap = viewportWidth < 900 ? 0.18 : 0.22;
+  $: fontSize = viewportWidth < 900 ? 10 : 11;
   $: barPadding = viewportWidth < 900 ? 1.5 : 1;
-  $: yMax = viewportWidth < 900 ? 1.5 : 1.275;
+  $: yMax = viewportWidth < 900 ? 1.5 : 2;
 
   $: transformed = data
     .cumsum({ xValue: "barLength" }, { asInterval: true })

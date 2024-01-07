@@ -82,6 +82,7 @@
           order={$selectedOptions.order}
           showing={$selectedOptions.showing === "both" ? "category" : $selectedOptions.showing}
           {viewportWidth}
+          position="up"
           />
         <StackedBarGraph
           subcategoryData={countriesData.secondCountries}
@@ -90,6 +91,7 @@
           order={$selectedOptions.order}
           showing={$selectedOptions.showing === "both" ? "change" : $selectedOptions.showing}
           {viewportWidth}
+          position="down"
           />
       </div>
     {/if}
