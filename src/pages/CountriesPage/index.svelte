@@ -30,6 +30,11 @@
       scale: "scale(0.9)",
       shranked: "scale(0.9) translate(0, -15%)",
     };
+  } else if (viewportHeight < 900) {
+    viewportLimit = {
+      scale: "scale(0.8)",
+      shranked: "scale(0.75) translate(0, -5%)",
+    };
   } else {
     viewportLimit = {
       scale: "",
