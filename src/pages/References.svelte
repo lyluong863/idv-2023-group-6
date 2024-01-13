@@ -19,6 +19,8 @@
       <p>Made by:</p>
       <ul>
         <li>Ly Luong (r0967248)</li>
+        <li>Xinyu Chen (r0918962)</li>
+        <li>Ratan Chandra Bhowmick (r0958838)</li>
       </ul>
     </div>
   </div>

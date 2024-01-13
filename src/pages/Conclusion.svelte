@@ -28,11 +28,6 @@
 </SwiperSlide>
 
 <style>
-  .pHed {
-    font-family: "Inter";
-    font-size: 32px;
-    font-weight: bold;
-  }
   .hed {
     padding-top: 20px;
     font-size: 28px;
