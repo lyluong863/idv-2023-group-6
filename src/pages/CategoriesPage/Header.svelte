@@ -1,7 +1,11 @@
 <script>
   import { categories } from "data/categories";
   import ButtonSet from "components/ButtonSet.svelte";
-  import { trendlineOptions, selectedOptions } from "./CategoriesPageStore";
+  import {
+    trendLineOptions,
+    selectedOptions,
+    compareOptions,
+  } from "./CategoriesPageStore";
 
   export let viewportWidth;
   export let currentSlidingIndex;
@@ -28,9 +32,17 @@
 <ButtonSet
   legend={"Trendline"}
   legendPosition={"left"}
-  options={trendlineOptions}
-  bind:value={$selectedOptions.trendline}
+  options={trendLineOptions}
+  bind:value={$selectedOptions.trendLine}
 />
+
+<ButtonSet
+  legend={"Compare"}
+  legendPosition={"left"}
+  options={compareOptions}
+  bind:value={$selectedOptions.compare}
+/>
+
 <div class="counting">
   <ButtonSet
     on:message={handleCategoriesChanges}

@@ -6,10 +6,15 @@
   import ReadMoreButton from "components/ReadMoreButton.svelte";
   import { selectedCountries, selectedOptions } from "./CountriesPageStore";
   import StackedBarGraph from "./StackedBarGraph/index.svelte";
-  import { preprocessData, calculateChange } from "./data-process";
+  import {
+    preprocessData,
+    calculateChange,
+    generateComparision,
+  } from "./data-process";
 
   let showMoreInfo = false;
   let countriesData = {};
+  let comparison = "";
   export let viewportWidth;
   export let viewportHeight;
 
@@ -23,22 +28,22 @@
   $: if (viewportWidth < 900 || viewportHeight < 600) {
     viewportLimit = {
       scale: "scale(0.6)",
-      shranked: "scale(0.55) translate(0, -5%)",
+      shranked: "scale(0.55) translate(0, -1%)",
     };
   } else if (viewportHeight < 900) {
     viewportLimit = {
       scale: "scale(0.8)",
-      shranked: "scale(0.75) translate(0, -5%)",
+      shranked: "scale(0.75) translate(0, -1%)",
     };
   } else if (viewportWidth <= 1100 || viewportHeight < 1000) {
     viewportLimit = {
       scale: "scale(0.9)",
-      shranked: "scale(0.9) translate(0, -5%)",
+      shranked: "scale(0.9) translate(0, -1%)",
     };
   } else {
     viewportLimit = {
       scale: "",
-      shranked: "scale(0.95) translate(0, -5%)",
+      shranked: "scale(0.95) translate(0, -1%)",
     };
   }
 
@@ -66,6 +71,12 @@
       secondCountries,
       secondCountriesCat,
     };
+    comparison = generateComparision(
+      first.name,
+      second.name,
+      firstCountries,
+      secondCountries
+    );
   });
 
   onDestroy(unsubscribe);
@@ -85,21 +96,25 @@
           totalCategoryData={countriesData.firstCountriesCat}
           title={$selectedCountries[0].name.toUpperCase()}
           order={$selectedOptions.order}
-          showing={$selectedOptions.showing === "both" ? "category" : $selectedOptions.showing}
+          showing={$selectedOptions.showing === "both"
+            ? "category"
+            : $selectedOptions.showing}
           {viewportWidth}
           {viewportHeight}
           position="up"
-          />
+        />
         <StackedBarGraph
           subcategoryData={countriesData.secondCountries}
           totalCategoryData={countriesData.secondCountriesCat}
           title={$selectedCountries[1].name.toUpperCase()}
           order={$selectedOptions.order}
-          showing={$selectedOptions.showing === "both" ? "change" : $selectedOptions.showing}
+          showing={$selectedOptions.showing === "both"
+            ? "change"
+            : $selectedOptions.showing}
           {viewportWidth}
           {viewportHeight}
           position="down"
-          />
+        />
       </div>
     {/if}
     <div class="read-more" class:showMoreInfo>
@@ -108,23 +123,10 @@
         <div class="read-more-content">
           <ul>
             <li>
-              Compared with the global average, Vietnamese spend less time on
-              active recreation, allocation, food preparation, and sleep &
-              bedrest, and more time on artifacts, buildings, energy, food
-              growth & collection, food processing, and human transportation
+              {`We're comparing the activities spend time between ${$selectedCountries[0].name} and ${$selectedCountries[1].name}`}
             </li>
             <li>
-              Selected countries is: {$selectedCountries[0].name} and {$selectedCountries[1]
-                .name}
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              pulvinar at felis vel vestibulum. Sed in volutpat ligula.
-              Curabitur lobortis lectus a odio scelerisque, at commodo libero
-              mollis. Maecenas quam felis, consequat sed cursus sed, sodales et
-              ipsum. Aliquam et interdum sem, ac fringilla nibh. Sed vitae sem
-              aliquam, bibendum nisl quis, cursus mi. Cras vel volutpat magna,
-              ut ullamcorper lorem.
+              {comparison}
             </li>
           </ul>
         </div>

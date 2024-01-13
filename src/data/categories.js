@@ -6,7 +6,7 @@ export function getCategoriesData(allCategories, categoriesName, allGdp) {
       totalHours: { hoursPerDayCombined: "sum" },
       population: { population: "max" },
     })
-    .mutate({ gdp: (row) => allGdp[row.country_iso3]});
+    .mutate({ gdp: (row) => allGdp[row.country_iso3] });
 }
 
 export const categories = [

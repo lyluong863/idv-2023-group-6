@@ -59,7 +59,7 @@
           {value}
           {onItemClick}
           isSelect={value === currentValue}
-          isDisable={disabled.find(item => value.iso === item.iso)}
+          isDisable={disabled.find((item) => value.iso === item.iso)}
         />
       {/each}
     </div>

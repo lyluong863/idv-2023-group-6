@@ -41,7 +41,7 @@
     justify-content: center;
     padding: 1rem 2rem;
   }
-  
+
   @media only screen and (max-width: 600px) {
     .read-more-button {
       padding: 0.5rem 0rem;

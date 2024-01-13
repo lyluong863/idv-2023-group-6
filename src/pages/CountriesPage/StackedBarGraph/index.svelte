@@ -32,8 +32,12 @@
 </script>
 
 <div
-  class:top-graph-adjustment={position === "down" && viewportHeight > 900 && viewportWidth > 800}
-  class:top-graph-mini-adjustment={position === "down" && viewportHeight <= 900 && viewportWidth > 800}
+  class:top-graph-adjustment={position === "down" &&
+    viewportHeight > 900 &&
+    viewportWidth > 800}
+  class:top-graph-mini-adjustment={position === "down" &&
+    viewportHeight <= 900 &&
+    viewportWidth > 800}
 >
   <Graphic {width} {height} padding={0} flipY>
     <Label

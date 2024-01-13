@@ -11,7 +11,11 @@
   });
 </script>
 
-<div class="viewport" bind:clientWidth={viewportWidth} bind:clientHeight={viewportHeight}>
+<div
+  class="viewport"
+  bind:clientWidth={viewportWidth}
+  bind:clientHeight={viewportHeight}
+>
   {#if mounted}
     <Slider {viewportWidth} {viewportHeight} />
   {/if}

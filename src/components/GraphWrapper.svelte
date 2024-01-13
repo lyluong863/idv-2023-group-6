@@ -7,13 +7,8 @@
 </script>
 
 <div class="explain-graph" style={styles}>
-  <div class={viewportWidth < 700 ? "graph-mobile" : "graph"}>
-    <div class="graph-outer" style:height={viewportLimit.height}>
-      <div class="graph-inner" style:transform={viewportLimit.scale}>
-        <slot name="graph" />
-      </div>
-    </div>
-
+  <div class="graph-inner" style:transform={viewportLimit.scale}>
+    <slot name="graph" />
     <div class="description">
       <p class="title-text">{title}</p>
       <p class="subtitle">{subtitle}</p>
@@ -24,31 +19,16 @@
 <style>
   .explain-graph {
     display: flex;
-    flex-grow: 1;
     justify-content: center;
     align-items: center;
     text-align: center;
-  }
-
-  .explain-graph .graph {
-    flex-grow: 1;
-  }
-
-  .explain-graph .graph-mobile {
-    bottom: 60px;
-    position: relative;
+    align-content: center;
+    flex-direction: column;
   }
 
   .explain-graph .graph-outer {
     position: relative;
     margin: 0 auto;
-  }
-
-  .graph-inner {
-    transition: height 0.3s;
-    max-height: 500px;
-    position: relative;
-    height: calc(100% - 50px);
   }
 
   .title-text {

@@ -88,3 +88,44 @@ export function calculateChange(firstData, secondData) {
   });
   return [updatedFirstData, updatedSecondData];
 }
+
+// Comparison generator
+export function generateComparision(
+  firstCountryName,
+  secondCountryName,
+  firstData,
+  secondData
+) {
+  firstCountryName =
+    firstCountryName === "Global Average"
+      ? firstCountryName
+      : firstCountryName + "'s people";
+  secondCountryName =
+    secondCountryName === "Global Average"
+      ? secondCountryName
+      : secondCountryName + "'s people";
+  function join(activities) {
+    return activities.slice(0, -1).join(", ") + ", and " + activities.slice(-1);
+  }
+  const lessTimeActs = [];
+  const moreTimeActs = [];
+  const firstAct = firstData
+    .arrange({ Subcategory: "ascending" })
+    .mutate({
+      actInfo: (row) => ({ name: row.Subcategory, value: row.barLength }),
+    })
+    .column("actInfo");
+  const secondAct = secondData
+    .arrange({ Subcategory: "ascending" })
+    .mutate({
+      actInfo: (row) => ({ name: row.Subcategory, value: row.barLength }),
+    })
+    .column("actInfo");
+  firstAct.forEach(({ value, name }, i) => {
+    if (value > secondAct[i].value) lessTimeActs.push(name.toLowerCase());
+    if (value < secondAct[i].value) moreTimeActs.push(name.toLowerCase());
+  });
+  return `Compared with the ${firstCountryName}, ${secondCountryName} spend less time on ${join(
+    lessTimeActs
+  )}, and more time on ${join(moreTimeActs)}.`;
+}

@@ -41,5 +41,6 @@
     padding-top: 20px;
     max-width: 600px;
     padding-bottom: 50px;
+    gap: 5px;
   }
 </style>

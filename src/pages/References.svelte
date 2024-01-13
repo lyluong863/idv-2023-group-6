@@ -13,8 +13,8 @@
         >.
       </p>
       <p>
-        This is a study project of G0Z84A: Interactive Data Visualization 2023, KU
-        Leuven
+        This is a study project of G0Z84A: Interactive Data Visualization 2023,
+        KU Leuven
       </p>
       <p>Made by:</p>
       <ul>
@@ -25,7 +25,7 @@
 </SwiperSlide>
 
 <style>
-    li {
-        font-size: 20px;
-    }
+  li {
+    font-size: 20px;
+  }
 </style>

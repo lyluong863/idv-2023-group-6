@@ -99,7 +99,7 @@
     justify-content: space-between;
     width: calc(100% - 25px);
     margin: 0 auto;
-    gap: 4px
+    gap: 4px;
   }
 
   .button-set {

@@ -1,12 +1,12 @@
 <script>
   import { SwiperSlide } from "swiper/svelte";
+  import ReadMoreButton from "components/ReadMoreButton.svelte";
 
   import ExplainGraph from "../../../components/GraphWrapper.svelte";
   import CategoryAnnotation from "./CategoryAnnotation.svelte";
-  import SurveyMap from "./SurveyMap.svelte";
 
   export let viewportWidth;
-
+  let showMoreInfo = false;
   let viewportLimit;
 
   $: if (viewportWidth < 700) {
@@ -25,6 +25,7 @@
       graph: "",
     };
   }
+  const showMoreToggle = () => (showMoreInfo = !showMoreInfo);
 </script>
 
 <SwiperSlide>
@@ -56,17 +57,33 @@
       >
         <CategoryAnnotation slot="graph" />
       </ExplainGraph>
-      <ExplainGraph
-        title={"Countries in survey"}
-        subtitle={"140 countries is survey"}
-        {viewportWidth}
-        {viewportLimit}
-        styles={viewportWidth < 1100
-          ? "margin-top: 3%; margin-bottom: 3%;height: 270px;"
-          : "margin-right: 3%"}
-      >
-        <SurveyMap slot="graph" />
-      </ExplainGraph>
+    </div>
+    <div class="read-more" class:showMoreInfo>
+      <ReadMoreButton onClick={showMoreToggle} />
+      {#if showMoreInfo}
+        <div class="read-more-content">
+          <ul>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+              id vehicula felis. Suspendisse tincidunt tempus orci ac varius.
+              Suspendisse potenti. Aliquam erat volutpat. Sed in quam blandit,
+              vestibulum purus ut, luctus nunc. Suspendisse et lacus at risus
+              accumsan dignissim in vehicula est. Morbi tristique pharetra sem
+              id laoreet. Sed elementum, leo vel ullamcorper aliquam, nulla
+              velit finibus sem, sit amet interdum libero nisl in ipsum
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+              id vehicula felis. Suspendisse tincidunt tempus orci ac varius.
+              Suspendisse potenti. Aliquam erat volutpat. Sed in quam blandit,
+              vestibulum purus ut, luctus nunc. Suspendisse et lacus at risus
+              accumsan dignissim in vehicula est. Morbi tristique pharetra sem
+              id laoreet. Sed elementum, leo vel ullamcorper aliquam, nulla
+              velit finibus sem, sit amet interdum libero nisl in ipsum
+            </li>
+          </ul>
+        </div>
+      {/if}
     </div>
   </div>
 </SwiperSlide>
