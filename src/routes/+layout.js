@@ -16,8 +16,11 @@ export async function load() {
     ),
   ]);
   const allCountries = new DataContainer(all_countries);
+  const allCategories = allCountries.groupBy("Category")
+  allCategories.setKey("Category")
   return {
     all_countries: allCountries,
+    all_categories: allCategories,
     country_regions: getCountries(
       new DataContainer(country_regions),
       allCountries
