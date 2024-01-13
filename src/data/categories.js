@@ -1,11 +1,12 @@
-export function getCategoriesData(allCategories, categoriesName) {
+export function getCategoriesData(allCategories, categoriesName, allGdp) {
   return allCategories
     .row({ key: categoriesName })
     .$grouped.groupBy("country_iso3")
     .summarise({
       totalHours: { hoursPerDayCombined: "sum" },
       population: { population: "max" },
-    });
+    })
+    .mutate({ gdp: (row) => allGdp[row.country_iso3]});
 }
 
 export const categories = [
