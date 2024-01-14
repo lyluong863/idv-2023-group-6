@@ -2,6 +2,7 @@
   import {
     Graphic,
     PointLayer,
+    Point,
     XAxis,
     YAxis,
     Line,
@@ -45,26 +46,25 @@
     .column("country_iso3")
     .map((item) => country_map[item]);
   $: {
-    colors = Array(x.length).fill(color);
-    radius = Array(x.length).fill(6);
-    colors[$selectedCountries.index] = "black";
-    radius[$selectedCountries.index] = 10;
-    selectX = x[$selectedCountries.index];
-    selectX = selectX + (selectX / maxX > 0.9 ? -0.02 : 0.02) * maxX;
-    selectY = y[$selectedCountries.index] + maxY * 0.01;
+    if ($selectedCountries.index) {
+      selectX = x[$selectedCountries.index];
+      selectY = y[$selectedCountries.index];
+      x = x.filter((_, i) => i !== $selectedCountries.index);
+      y = y.filter((_, i) => i !== $selectedCountries.index);
+    }
   }
   $: trendY = calculateTrendLine(y, x);
 </script>
 
 <Graphic width={600} height={800} {scaleX} {scaleY} padding={60} flipY>
-  <PointLayer {x} {y} fill={colors} opacity={0.8} {radius} />
+  <PointLayer {x} {y} fill={color} opacity={0.8} radius={6} />
   <Line {x} y={trendY} stroke={"black"} />
 
   {#if $selectedCountries.name}
     {#each splitString($selectedCountries.name, 12, "up") as word, i}
       <Label
-        x={selectX}
-        y={selectY + maxY * 0.02 * (i + 1)}
+        x={selectX + (selectX / maxX > 0.9 ? -0.02 : 0.02) * maxX}
+        y={selectY + maxY * 0.01 + maxY * 0.02 * (i + 1)}
         text={word}
         anchorPoint={selectX / maxX > 0.8 ? "rt" : "lt"}
         fontFamily={"Barlow"}
@@ -72,6 +72,7 @@
         fontSize={14}
       />
     {/each}
+    <Point x={selectX} y={selectY} fill={"black"} radius={8} />
   {/if}
 
   {#if compare !== "population"}
