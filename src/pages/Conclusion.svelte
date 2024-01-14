@@ -6,13 +6,20 @@
   <div class="swiper-slide-flex">
     <div class="text-slide-content">
       <p><span class="pHed">Conclusion</span></p>
-      <blockquote class="hed">
+      <blockquote class="hed" style="display: inline;">
         "If we are to sustainably navigate climate change and biodiversity loss,
         adapt to rapid technological change, and achieve global development
         goals it is crucial to understand the big picture of how the global
         human system functions, so that we can see where there is potential for
         change"
       </blockquote>
+      <span class="byline"
+        >By <a
+          href="https://www.mcgill.ca/newsroom/eric-galbraith"
+          target="_blank"
+          rel="noopener noreferrer">Eric Galbraith</a
+        ></span
+      >
       <p>
         The Global Human Day project offers a panoramic view of how we allocate
         these ‘coins’. Every human activity, from sustenance to leisure, reveals
@@ -33,10 +40,6 @@
     font-size: 28px;
     line-height: 1.3;
     text-align: left;
-  }
-
-  .hed .smaller {
-    opacity: 1;
   }
 
   @media only screen and (max-height: 900px) {
