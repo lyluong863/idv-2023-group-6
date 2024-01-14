@@ -11,6 +11,9 @@ export const compareOptions = [
 ];
 
 export const selectedOptions = writable({
-  trendLine: true,
   compare: "gdp",
 });
+
+export const displayCountries = writable([]);
+
+export const selectedCountries = writable({});

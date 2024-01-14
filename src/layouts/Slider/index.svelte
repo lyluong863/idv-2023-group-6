@@ -108,13 +108,15 @@
   <Swiper
     parallax={true}
     watchSlidesProgress={true}
+    noSwiping
+    noSwipingClass={"no-swiping"}
     on:slideNextTransitionStart={changeDirectionForwards}
     on:slidePrevTransitionStart={changeDirection}
     on:swiper={onInit}
     on:slideChange={onSlideChange}
     initialSlide="0"
   >
-    <Introduction {viewportWidth} width={w} {popFirst} />
+    <Introduction {viewportWidth} />
     <Countries {viewportWidth} {viewportHeight} />
     <Categories {viewportWidth} {viewportHeight} />
     <Conclusion />

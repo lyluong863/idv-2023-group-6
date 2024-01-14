@@ -1,10 +1,12 @@
 <script>
   import { categories } from "data/categories";
   import ButtonSet from "components/ButtonSet.svelte";
+  import Dropdown from "components/Dropdown/index.svelte";
   import {
-    trendLineOptions,
     selectedOptions,
+    selectedCountries,
     compareOptions,
+    displayCountries,
   } from "./CategoriesPageStore";
 
   export let viewportWidth;
@@ -29,20 +31,6 @@
   }
 </script>
 
-<ButtonSet
-  legend={"Trendline"}
-  legendPosition={"left"}
-  options={trendLineOptions}
-  bind:value={$selectedOptions.trendLine}
-/>
-
-<ButtonSet
-  legend={"Compare"}
-  legendPosition={"left"}
-  options={compareOptions}
-  bind:value={$selectedOptions.compare}
-/>
-
 <div class="counting">
   <ButtonSet
     on:message={handleCategoriesChanges}
@@ -54,3 +42,24 @@
     bind:value={currentSlidingIndex}
   />
 </div>
+
+<ButtonSet
+  legend={"Compare"}
+  legendPosition={"left"}
+  options={compareOptions}
+  bind:value={$selectedOptions.compare}
+/>
+
+<Dropdown
+  legend={"Find in graph"}
+  currentValue={$selectedCountries}
+  currentTitle={$selectedCountries?.name || "Select country"}
+  menuList={$displayCountries.map((item, i) => ({
+    label: item.name,
+    value: { ...item, index: i },
+  }))}
+  inputPlaceholder={"Search a country"}
+  compareFn={(item, value) =>
+    item.label.toLowerCase().match(value.toLowerCase())}
+  onSelect={(value) => ($selectedCountries = value)}
+/>

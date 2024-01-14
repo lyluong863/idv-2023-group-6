@@ -1,34 +1,88 @@
 <script>
-  import { Graphic, PointLayer, XAxis, YAxis, Line } from "@snlab/florence";
+  import {
+    Graphic,
+    PointLayer,
+    XAxis,
+    YAxis,
+    Line,
+    Label,
+  } from "@snlab/florence";
   import { getContext } from "svelte";
 
   import { getCategoriesData } from "data/categories";
+  import { splitString } from "utils/string";
   import { calculateTrendLine } from "./calculate-trendline";
+  import { displayCountries, selectedCountries } from "./CategoriesPageStore";
 
-  const { all_categories, all_gdp } = getContext("data");
-  export let trendLine;
+  const { all_categories, all_gdp, country_map } = getContext("data");
+  export let year = 2020;
   export let compare;
   export let category;
   export let color;
   export let chartInfo;
+  let colors = [];
+  let radius = [];
+  let selectX = null;
+  let selectY = null;
 
   $: categoryData =
     compare !== "population"
       ? getCategoriesData(all_categories, category, all_gdp)
+          .filter((row) => !!row.gdpPerYear[year])
+          .mutate({
+            gdp: (row) => row.gdpPerYear[year],
+          })
       : getCategoriesData(all_categories, category, all_gdp).filter(
           (row) => row.population < 150 * 1000000
         );
-  $: scaleX = [0, categoryData.max("totalHours")];
-  $: scaleY = [0, categoryData.max(compare)];
+  $: maxX = categoryData.max("totalHours");
+  $: maxY = categoryData.max(compare);
+  $: scaleX = [0, maxX];
+  $: scaleY = [0, maxY];
   $: x = categoryData.column("totalHours");
   $: y = categoryData.column(compare);
-  $: trendY = trendLine ? calculateTrendLine(y, x) : [];
+  $: $displayCountries = categoryData
+    .column("country_iso3")
+    .map((item) => country_map[item]);
+  $: {
+    colors = Array(x.length).fill(color);
+    radius = Array(x.length).fill(6);
+    colors[$selectedCountries.index] = "black";
+    radius[$selectedCountries.index] = 10;
+    selectX = x[$selectedCountries.index];
+    selectX = selectX + (selectX / maxX > 0.9 ? -0.02 : 0.02) * maxX;
+    selectY = y[$selectedCountries.index] + maxY * 0.01;
+  }
+  $: trendY = calculateTrendLine(y, x);
 </script>
 
 <Graphic width={600} height={800} {scaleX} {scaleY} padding={60} flipY>
-  <PointLayer {x} {y} fill={color} opacity={0.8} radius={6} />
-  {#if trendLine}
-    <Line {x} y={trendY} stroke={"black"} />
+  <PointLayer {x} {y} fill={colors} opacity={0.8} {radius} />
+  <Line {x} y={trendY} stroke={"black"} />
+
+  {#if $selectedCountries.name}
+    {#each splitString($selectedCountries.name, 12, "up") as word, i}
+      <Label
+        x={selectX}
+        y={selectY + maxY * 0.02 * (i + 1)}
+        text={word}
+        anchorPoint={selectX / maxX > 0.8 ? "rt" : "lt"}
+        fontFamily={"Barlow"}
+        fontWeight={"bold"}
+        fontSize={14}
+      />
+    {/each}
+  {/if}
+
+  {#if compare !== "population"}
+    <Label
+      x={maxX * 0.5}
+      y={maxY * 0.95}
+      text={year}
+      fontFamily={"Barlow"}
+      fontWeight={"bold"}
+      fontSize={14}
+    />
   {/if}
 
   <XAxis

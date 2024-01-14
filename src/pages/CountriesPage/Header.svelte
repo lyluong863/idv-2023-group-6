@@ -40,7 +40,6 @@
     currentValue={$selectedCountries[0]}
     currentTitle={$selectedCountries[0].name}
     disabled={$selectedCountries}
-    menuTitle={"Select countries"}
     menuList={country_regions.map((item) => ({
       label: item.name,
       value: item,
@@ -56,7 +55,6 @@
     currentValue={$selectedCountries[1]}
     currentTitle={$selectedCountries[1].name}
     disabled={$selectedCountries}
-    menuTitle={"Select countries"}
     menuList={country_regions.map((item) => ({
       label: item.name,
       value: item,

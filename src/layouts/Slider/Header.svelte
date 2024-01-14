@@ -6,11 +6,13 @@
   export let viewportWidth;
   export let slideTo;
 
+  $: first = activeIndex === baseValue;
+
   const baseValue = 4;
 </script>
 
-<div class="header-wrapper header">
-  {#if activeIndex === baseValue}
+<div class="header-wrapper header" class:first>
+  {#if first}
     <CountriesHeader />
   {/if}
   {#if activeIndex > baseValue && activeIndex <= baseValue + categories.length}
@@ -39,8 +41,12 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding-top: 20px;
-    max-width: 600px;
+    max-width: 500px;
     padding-bottom: 50px;
     gap: 5px;
+  }
+
+  .first {
+    max-width: 600px;
   }
 </style>

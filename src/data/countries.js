@@ -107,24 +107,10 @@ export const globalItem = {
 };
 
 export function getCountries(countriesWithRegion, allCountriesData) {
-  // return {name, iso, regionIso, region}
-  const everyCountriesWithRegion = countriesWithRegion
-    .select(["country_name", "country_iso3", "region_code", "region_name"])
-    .rename({
-      country_name: "name",
-      country_iso3: "iso",
-      region_code: "regionIso",
-      region_name: "region",
-    })
-    .rows()
-    .reduce((acc, item) => {
-      acc[item.iso] = item;
-      return acc;
-    }, {});
   const allCountriesWithRegion = allCountriesData
     .groupBy("country_iso3")
     .column("country_iso3")
-    .map((item) => everyCountriesWithRegion[item]);
+    .map((item) => countriesWithRegion[item]);
   allCountriesWithRegion.unshift(globalItem);
   return allCountriesWithRegion;
 }

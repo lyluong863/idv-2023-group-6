@@ -2,7 +2,7 @@
   import { SwiperSlide } from "swiper/svelte";
   import ReadMoreButton from "components/ReadMoreButton.svelte";
 
-  import ExplainGraph from "../../../components/GraphWrapper.svelte";
+  import ExplainGraph from "components/GraphWrapper.svelte";
   import CategoryAnnotation from "./CategoryAnnotation.svelte";
 
   export let viewportWidth;
@@ -11,18 +11,15 @@
 
   $: if (viewportWidth < 700) {
     viewportLimit = {
-      scale: "scale(0.5)",
-      height: "250px",
+      scale: "scale(1)",
     };
   } else if (viewportWidth < 1100) {
     viewportLimit = {
-      scale: "scale(0.7)",
-      height: "300px",
+      scale: "scale(1.2)",
     };
   } else {
     viewportLimit = {
-      scale: "",
-      graph: "",
+      scale: "scale(1.5)",
     };
   }
   const showMoreToggle = () => (showMoreInfo = !showMoreInfo);
@@ -38,8 +35,9 @@
         groups
       </p>
       <p>
-        Since the data only observed through 140 countries, the others are
-        interpolated
+        Since the data only observed through 140 countries, for each missing
+        data type, countries are filled using the population-weighted average of
+        the sampled countries in the same region, for each subcategory.
       </p>
     </div>
     <div
@@ -49,11 +47,7 @@
       <ExplainGraph
         title={"Categories use in the survey"}
         subtitle={"All categories in the survey"}
-        {viewportWidth}
         {viewportLimit}
-        styles={viewportWidth < 1100
-          ? "margin-top: 3%;height: 270px;"
-          : "margin-left: 3%"}
       >
         <CategoryAnnotation slot="graph" />
       </ExplainGraph>
@@ -61,25 +55,26 @@
     <div class="read-more" class:showMoreInfo>
       <ReadMoreButton onClick={showMoreToggle} />
       {#if showMoreInfo}
-        <div class="read-more-content">
+        <div class="read-more-content no-swiping">
           <ul>
             <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-              id vehicula felis. Suspendisse tincidunt tempus orci ac varius.
-              Suspendisse potenti. Aliquam erat volutpat. Sed in quam blandit,
-              vestibulum purus ut, luctus nunc. Suspendisse et lacus at risus
-              accumsan dignissim in vehicula est. Morbi tristique pharetra sem
-              id laoreet. Sed elementum, leo vel ullamcorper aliquam, nulla
-              velit finibus sem, sit amet interdum libero nisl in ipsum
+              This study approach is enabled by a generalized categorization of
+              activities, the Motivating-Outcome-Oriented Generalized Activity
+              Lexicon (MOOGAL), which allows for the integration of data
+              originally collected for diverse sociological, economic, and
+              anthropological purposes.
             </li>
             <li>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-              id vehicula felis. Suspendisse tincidunt tempus orci ac varius.
-              Suspendisse potenti. Aliquam erat volutpat. Sed in quam blandit,
-              vestibulum purus ut, luctus nunc. Suspendisse et lacus at risus
-              accumsan dignissim in vehicula est. Morbi tristique pharetra sem
-              id laoreet. Sed elementum, leo vel ullamcorper aliquam, nulla
-              velit finibus sem, sit amet interdum libero nisl in ipsum
+              The lexicon is comprised of eight categories, which are subdivided
+              into 24 subcategories (Figure). The subcategories are described in
+              physical, rather than colloquial, terms to limit ambiguity in
+              their application across cultures
+            </li>
+            <li>
+              For a detailed description of the full method <a
+                href="http://www.pnas.org/lookup/doi/10.1073/pnas.2219564120#supplementary-materials"
+                target="_blank">visit this document</a
+              >.
             </li>
           </ul>
         </div>

@@ -1,5 +1,6 @@
 <script>
   import { Rectangle, Line, Point, Label } from "@snlab/florence";
+  import { splitString } from "utils/string";
 
   //expect one value
   export let x1;
@@ -34,22 +35,10 @@
   };
 
   const pointToLabel = 0.015;
-
-  function splitString(str) {
-    const words = [""];
-    const splitted = str.split(" ");
-    if (splitted.length > 1) {
-      splitted.forEach((word) => {
-        if (words[words.length - 1].length + word.length > 12) words.push("");
-        words[words.length - 1] += word + " ";
-      });
-      return textDirection === "up" ? words.reverse() : words;
-    } else return splitted;
-  }
 </script>
 
 <Rectangle {x1} {x2} {y1} {y2} fill={color} />
-{#each splitString(subLabel, 10) as word, i}
+{#each splitString(subLabel, 12, textDirection) as word, i}
   <Label
     x={textInfo.x}
     y={textInfo.y + pointToLabel + lineHeight * (i + 1)}

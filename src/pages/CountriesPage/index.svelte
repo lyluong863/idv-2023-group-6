@@ -120,7 +120,7 @@
     <div class="read-more" class:showMoreInfo>
       <ReadMoreButton onClick={showMoreToggle} />
       {#if showMoreInfo}
-        <div class="read-more-content">
+        <div class="read-more-content no-swiping">
           <ul>
             <li>
               {`We're comparing the activities spend time between ${$selectedCountries[0].name} and ${$selectedCountries[1].name}`}

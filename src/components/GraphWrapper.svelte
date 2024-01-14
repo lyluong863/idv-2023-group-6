@@ -1,8 +1,7 @@
 <script>
-  export let viewportWidth;
   export let styles;
-  export let title;
-  export let subtitle;
+  export let title = "";
+  export let subtitle = "";
   export let viewportLimit; // {scale, graph}
 </script>
 
@@ -10,8 +9,12 @@
   <div class="graph-inner" style:transform={viewportLimit.scale}>
     <slot name="graph" />
     <div class="description">
-      <p class="title-text">{title}</p>
-      <p class="subtitle">{subtitle}</p>
+      {#if title}
+        <p class="title-text">{title}</p>
+      {/if}
+      {#if subtitle}
+        <p class="subtitle">{subtitle}</p>
+      {/if}
     </div>
   </div>
 </div>

@@ -13,6 +13,11 @@
         >.
       </p>
       <p>
+        Design inspired from <a href="https://pudding.cool/" target="_blank"
+          >pudding.cool</a
+        >.
+      </p>
+      <p>
         This is a study project of G0Z84A: Interactive Data Visualization 2023,
         KU Leuven
       </p>

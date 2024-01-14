@@ -4,7 +4,7 @@ export const compareGDPInfo = {
   chartLabel: "vs GDP per capita",
   ["Food provision"]: `
     <li>From cultivation to consumption, all human activities related to food provision are covered under this category</li>
-    <li>Surprisingly, this vital aspect of human survival isn’t as time-consuming as one might expect. High-income countries tend to spend less time here, which can be largely attributed to labor-saving technologies used in food growth and gathering</li>
+    <li>Surprisingly, this vital aspect of human survival isn’t as time-consuming as one might expect. With 2020 statistics, high-income countries tend to spend less time here, which can be largely attributed to labor-saving technologies used in food growth and gathering</li>
   `,
   ["Nonfood provision"]: `
     <li>NonFood provision is mainly about two aspects—-- materials and energy. Human activities like mining, quarrying, and oil/gas extraction are included here</li>
@@ -12,7 +12,7 @@ export const compareGDPInfo = {
   `,
   ["Technosphere modification"]: `
     <li>Technosphere modification entails the construction and maintenance of buildings, infrastructure, and movable artifacts. From home maintenance and construction to crafting textiles, pharmaceuticals, and electronics, it's about shaping our environment</li>
-    <li>High-income countries tend to spend more time on these activities than countries with lower GDPs</li>
+    <li>With 2020 statistics, high-income countries tend to spend more time on these activities than countries with lower GDPs</li>
   `,
   ["Maintenance of surroundings"]: `
     <li>Maintenance of surroundings involves maintaining inhabited spaces and managing waste. It includes tidying and organizing home and work areas, as well as managing waste and by-products outside these spaces</li>
@@ -34,7 +34,7 @@ export const compareGDPInfo = {
   `,
   ["Experience oriented"]: `
     <li>Experience-oriented activities focus on pleasure and fulfillment. They involve seeking desired experiences through media, hobbies, sports, socializing, and meals</li>
-    <li>Interestingly, there's a noticeable rise in the time spent on these activities as GDP per capita increases, highlighting the pursuit of enjoyable experiences across various income levels.</li>
+    <li>Interestingly, with 2020 statistics, there's a noticeable rise in the time spent on these activities as GDP per capita increases, highlighting the pursuit of enjoyable experiences across various income levels.</li>
   `,
 };
 
@@ -44,7 +44,7 @@ export const comparePopulationInfo = {
   chartLabel: "vs Population",
   ["Food provision"]: `
     <li>From cultivation to consumption, all human activities related to food provision are covered under this category</li>
-    <li>Surprisingly, this vital aspect of human survival isn’t as time-consuming as one might expect. High-income countries tend to spend less time here, which can be largely attributed to labor-saving technologies used in food growth and gathering</li>
+    <li>Surprisingly, this vital aspect of human survival isn’t as time-consuming as one might expect.</li>
   `,
   ["Nonfood provision"]: `
     <li>NonFood provision is mainly about two aspects—-- materials and energy. Human activities like mining, quarrying, and oil/gas extraction are included here</li>
@@ -52,12 +52,10 @@ export const comparePopulationInfo = {
   `,
   ["Technosphere modification"]: `
     <li>Technosphere modification entails the construction and maintenance of buildings, infrastructure, and movable artifacts. From home maintenance and construction to crafting textiles, pharmaceuticals, and electronics, it's about shaping our environment</li>
-    <li>High-income countries tend to spend more time on these activities than countries with lower GDPs</li>
   `,
   ["Maintenance of surroundings"]: `
     <li>Maintenance of surroundings involves maintaining inhabited spaces and managing waste. It includes tidying and organizing home and work areas, as well as managing waste and by-products outside these spaces</li>
     <li>This category focuses on mundane activities, or let's just say, ‘chores’ that preserve cleanliness within living and working environments</li>
-    <li>It does not show a clear trend of increase or decrease in time spent as GDP per capita increases</li>
   `,
   ["Somatic maintenance"]: `
     <li>Somatic maintenance contrasts with surroundings maintenance, focusing on human-level care. It encompasses personal care, childcare, healthcare, and rest</li>
@@ -74,6 +72,5 @@ export const comparePopulationInfo = {
   `,
   ["Experience oriented"]: `
     <li>Experience-oriented activities focus on pleasure and fulfillment. They involve seeking desired experiences through media, hobbies, sports, socializing, and meals</li>
-    <li>Interestingly, there's a noticeable rise in the time spent on these activities as GDP per capita increases, highlighting the pursuit of enjoyable experiences across various income levels.</li>
   `,
 };

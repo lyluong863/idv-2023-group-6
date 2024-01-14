@@ -4,11 +4,10 @@
   import DropdownSearch from "./DropdownSearch.svelte";
 
   export let legend;
-  export let disabled; // array of disabled value
+  export let disabled = []; // array of disabled value
   export let currentValue; //current value
   export let currentTitle; //current title
   export let menuList; //expect array of {value, label}
-  export let menuTitle; //message or [openMessage, closeMessage]
   export let allowSearch = true; // true | false
   export let inputPlaceholder; //placeholder for input
   export let compareFn; //compareFn for filter feature
