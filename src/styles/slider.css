@@ -10,6 +10,10 @@
   font-family: "Inter";
 }
 
+.first-slide {
+  padding-bottom: 50px !important;
+}
+
 .main-swiper .swiper {
   height: 100%;
 }

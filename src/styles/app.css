@@ -66,6 +66,8 @@ main {
 .big {
   font-size: 36px;
   line-height: 1.3;
+  padding-top: 50px;
+  display: block;
 }
 
 #content {
@@ -191,9 +193,8 @@ li {
 }
 
 .intro {
-  font-size: 36px;
+  font-size: 48px;
   display: block;
-  padding-bottom: 50px;
   font-weight: bold;
   font-family: "Inter";
 }

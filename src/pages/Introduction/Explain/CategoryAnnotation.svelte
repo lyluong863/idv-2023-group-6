@@ -6,7 +6,7 @@
 </script>
 
 <div>
-  <Graphic width={550} height={350}>
+  <Graphic width={550} height={375}>
     <Section x1={0.27} x2={0.07} y1={0.86} y2={0.1} {scaleX} {scaleY}>
       <Line strokeWidth={1} x={[6, 6]} y={[0, 12]} />
     </Section>
@@ -124,5 +124,6 @@
         </text>
       </DiscreteLegend>
     </Section>
+    <text x="180" y="360">All categories use in the survey</text>
   </Graphic>
 </div>

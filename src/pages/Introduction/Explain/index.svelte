@@ -11,15 +11,15 @@
 
   $: if (viewportWidth < 700) {
     viewportLimit = {
-      scale: "scale(0.7)",
+      scale: "scale(0.8)",
     };
   } else if (viewportWidth < 1100) {
     viewportLimit = {
-      scale: "scale(0.9)",
+      scale: "scale(1)",
     };
   } else {
     viewportLimit = {
-      scale: "scale(1.2)",
+      scale: "scale(1.3)",
     };
   }
   const showMoreToggle = () => (showMoreInfo = !showMoreInfo);
@@ -45,8 +45,6 @@
       style:flex-direction={viewportWidth < 1100 ? "column" : "row"}
     >
       <ExplainGraph
-        title={"Categories use in the survey"}
-        subtitle={"All categories in the survey"}
         {viewportLimit}
       >
         <CategoryAnnotation slot="graph" />
