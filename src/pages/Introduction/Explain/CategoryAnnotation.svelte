@@ -6,7 +6,7 @@
 </script>
 
 <div>
-  <Graphic width={550} height={375}>
+  <Graphic width={550} height={350}>
     <Section x1={0.27} x2={0.07} y1={0.86} y2={0.1} {scaleX} {scaleY}>
       <Line strokeWidth={1} x={[6, 6]} y={[0, 12]} />
     </Section>
@@ -20,7 +20,7 @@
 
     <Section x1={0} x2={0.12} y1={0.44} y2={0.25}>
       <DiscreteLegend
-      labelFont={"Barlow"}
+        labelFont={"Barlow"}
         fill={["#9ecae1", "#6baed6", "#4292c6"]}
         labels={[
           "Food processing",
@@ -46,7 +46,7 @@
     </text>
     <Section x1={0.54} x2={0.66} y1={0.37} y2={0.25}>
       <DiscreteLegend
-      labelFont={"Barlow"}
+        labelFont={"Barlow"}
         fill={["#fdb77a", "#fd8d3c"]}
         labels={["Energy", "Materials"]}
       ></DiscreteLegend>
@@ -57,7 +57,7 @@
     </text>
     <Section x1={0.77} x2={0.89} y1={0.37} y2={0.25}>
       <DiscreteLegend
-      labelFont={"Barlow"}
+        labelFont={"Barlow"}
         fill={["#c9e4c3", "#b0d9b1"]}
         labels={["Waste management", "Inhabited environment"]}
       ></DiscreteLegend>
@@ -68,7 +68,7 @@
     </text>
     <Section x1={0} x2={0.12} y1={0.8} y2={0.6}>
       <DiscreteLegend
-      labelFont={"Barlow"}
+        labelFont={"Barlow"}
         fill={["#e88cb7", "#cb709b", "#af5481"]}
         labels={[
           "Material transportation",
@@ -77,11 +77,11 @@
         ]}
       ></DiscreteLegend>
     </Section>
-    <text x={2} y={210}>Organization</text>
+    <text x={2} y={188}>Organization</text>
 
     <Section x1={0.28} x2={0.4} y1={0.73} y2={0.6}>
       <DiscreteLegend
-      labelFont={"Barlow"}
+        labelFont={"Barlow"}
         fill={["#e8767a", "#d25e62"]}
         labels={["Religious practice", "Schooling & research"]}
       ></DiscreteLegend>
@@ -92,7 +92,7 @@
     </text>
     <Section x1={0.54} x2={0.66} y1={0.85} y2={0.6}>
       <DiscreteLegend
-      labelFont={"Barlow"}
+        labelFont={"Barlow"}
         fill={["#abd7c8", "#93bfb0", "#7ba799", "#639082"]}
         labels={[
           "Health care",
@@ -108,7 +108,7 @@
     </text>
     <Section x1={0.77} x2={0.89} y1={0.91} y2={0.6}>
       <DiscreteLegend
-      labelFont={"Barlow"}
+        labelFont={"Barlow"}
         fill={["#d9c0ee", "#b095c6", "#8262a0", "#633f81", "#602a81"]}
         labels={[
           "Active recreation",

@@ -125,7 +125,9 @@ export function generateComparision(
     if (value > secondAct[i].value) lessTimeActs.push(name.toLowerCase());
     if (value < secondAct[i].value) moreTimeActs.push(name.toLowerCase());
   });
-  return `Compared with the ${firstCountryName}, ${secondCountryName} spend less time on ${join(
-    lessTimeActs
-  )}, and more time on ${join(moreTimeActs)}.`;
+  return `Compared with the ${firstCountryName}, ${secondCountryName}: 
+  <ul>
+  <li>Spend less time on ${join(lessTimeActs)}.</li>
+  <li>Spend more time on ${join(moreTimeActs)}.</li>
+  </ul>`;
 }

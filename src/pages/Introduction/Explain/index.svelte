@@ -11,15 +11,15 @@
 
   $: if (viewportWidth < 700) {
     viewportLimit = {
-      scale: "scale(1)",
+      scale: "scale(0.7)",
     };
   } else if (viewportWidth < 1100) {
     viewportLimit = {
-      scale: "scale(1.2)",
+      scale: "scale(0.9)",
     };
   } else {
     viewportLimit = {
-      scale: "scale(1.5)",
+      scale: "scale(1.2)",
     };
   }
   const showMoreToggle = () => (showMoreInfo = !showMoreInfo);
@@ -32,7 +32,7 @@
         The researchers categorized all the things people do in a waking day,
         including both work and non-work activities, according to what the
         purpose of the activity was. They used 24 categories that fall into 8
-        groups
+        groups.
       </p>
       <p>
         Since the data only observed through 140 countries, for each missing

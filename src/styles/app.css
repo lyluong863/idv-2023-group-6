@@ -190,6 +190,14 @@ li {
   font-weight: bold;
 }
 
+.intro {
+  font-size: 36px;
+  display: block;
+  padding-bottom: 50px;
+  font-weight: bold;
+  font-family: "Inter";
+}
+
 @media only screen and (max-width: 600px) {
   #content .slide-content p,
   #content .text-slide-content p {

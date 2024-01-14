@@ -5,6 +5,10 @@
     "text": [
       {
         "type": "text",
+        "value": "<span class=intro>Global Human Day</span>"
+      },
+      {
+        "type": "text",
         "value": "<span class=big>How humans around the world spend their time on an average day?</span>"
       }
     ]
@@ -17,7 +21,7 @@
     "text": [
       {
         "type": "text",
-        "value": "Everyone has 24 hours per day. Across the global population of 8 billion people this adds up to approximately 190 billion human hours per day. How those hours are spent determines the impacts we have on our surroundings as well as how we experience life. To find out how people around the world use their time, a research team led by McGill University has gathered and analyzed information about both economic and non-economic activities in order to estimate, for the first time, what a day in the life of the world looks like"
+        "value": "Everyone has 24 hours per day. Across the global population of 8 billion people this adds up to approximately 190 billion human hours per day. How those hours are spent determines the impacts we have on our surroundings as well as how we experience life. To find out how people around the world use their time, a research team led by McGill University has gathered and analyzed information about both economic and non-economic activities in order to estimate, for the first time, what a day in the life of the world looks like."
       },
       {
         "type": "text",
